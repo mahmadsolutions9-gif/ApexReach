@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,900;1,900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+
+  /* High-end Light Mode Palette */
+  --color-brand-bg: #F8FAFC;
+  --color-brand-surface: #FFFFFF;
+  --color-brand-accent: #0F172A;
+  --color-brand-accent-hover: #1E293B;
+  --color-brand-accent-pressed: #020617;
+  --color-brand-purple: #8B5CF6;
+  --color-brand-text: #0F172A;
+  --color-brand-muted: #64748B;
+  --color-brand-border: #E2E8F0;
+  --color-brand-card: #FFFFFF;
+}
+
+body {
+  @apply antialiased bg-brand-bg text-brand-text selection:bg-brand-accent selection:text-white;
+}
+
+@utility no-scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@utility glass {
+  @apply bg-white/80 backdrop-blur-xl border border-brand-border shadow-2xl;
+}
+
+@utility neon-glow {
+  @apply shadow-[0_0_30px_rgba(15,23,42,0.05)];
+}
+
+@utility card-base {
+  @apply bg-brand-card border border-brand-border rounded-[2.5rem] shadow-sm overflow-hidden;
+}
+
+@utility card-hover {
+  @apply transition-all duration-200 hover:border-brand-accent/10 hover:shadow-xl hover:-translate-y-1;
+}
+
+@utility button-primary {
+  @apply bg-brand-accent text-white px-8 py-4 rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-brand-accent-hover active:bg-brand-accent-pressed active:scale-95 transition-all duration-150 flex items-center justify-center gap-3 disabled:opacity-50;
+}
+
+@utility button-secondary {
+  @apply bg-white text-brand-text border border-brand-border px-8 py-4 rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-brand-bg hover:border-brand-accent/30 active:scale-95 transition-all duration-150 flex items-center justify-center gap-3 disabled:opacity-50;
+}
+
+@utility input-base {
+  @apply w-full px-6 py-4 bg-slate-50 border border-brand-border rounded-2xl focus:border-brand-accent focus:bg-white outline-none font-bold text-brand-text transition-all placeholder:text-brand-muted;
+}
+
+@utility button-danger {
+  @apply bg-red-50 text-red-600 border border-red-100 px-8 py-4 rounded-xl font-bold text-sm uppercase tracking-widest hover:bg-red-600 hover:text-white active:scale-95 transition-all duration-150 flex items-center justify-center gap-3 disabled:opacity-50;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.prose-email {
+  @apply max-w-none text-brand-muted leading-relaxed;
+}
+
+.prose-email p {
+  @apply mb-4;
+}
+
+.prose-email a {
+  @apply text-brand-accent underline hover:text-brand-accent-hover;
+}
+
+/* Quill Dark Theme Overrides */
+.quill-custom .ql-toolbar.ql-snow {
+  @apply border-none bg-brand-surface py-3 px-6;
+}
+
+.quill-custom .ql-container.ql-snow {
+  @apply border-none bg-transparent text-lg font-medium;
+}
+
+.quill-custom .ql-editor {
+  @apply min-h-[20rem] px-8 py-6 text-brand-text;
+}
+
+.quill-custom .ql-editor.ql-blank::before {
+  @apply text-brand-muted italic;
+}
+
+.quill-custom .ql-snow .ql-stroke {
+  @apply stroke-brand-muted;
+}
+
+.quill-custom .ql-snow .ql-fill {
+  @apply fill-brand-muted;
+}
+
+.quill-custom .ql-snow .ql-picker {
+  @apply text-brand-muted;
+}
+
+.quill-custom .ql-snow.ql-toolbar button:hover .ql-stroke,
+.quill-custom .ql-snow.ql-toolbar button:hover .ql-fill,
+.quill-custom .ql-snow.ql-toolbar button.ql-active .ql-stroke,
+.quill-custom .ql-snow.ql-toolbar button.ql-active .ql-fill {
+  @apply stroke-brand-accent fill-brand-accent;
+}
+
+.quill-custom .ql-snow.ql-toolbar .ql-picker-label:hover,
+.quill-custom .ql-snow.ql-toolbar .ql-picker-label.ql-active {
+  @apply text-brand-accent;
+}
+
+.quill-custom .ql-snow .ql-picker-options {
+  @apply bg-brand-surface border border-brand-border rounded-xl shadow-2xl;
+}
+
+.quill-custom .ql-snow .ql-picker-item {
+  @apply text-brand-muted hover:text-brand-text hover:bg-brand-bg;
+}
+
